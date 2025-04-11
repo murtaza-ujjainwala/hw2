@@ -6,8 +6,13 @@ import javax.swing.table.DefaultTableModel;
 
 import controller.InputValidation;
 
+import controller.TransactionFilter;
+import controller.CategoryFilter;
+import controller.AmountFilter;
+
 import java.awt.*;
 import java.text.NumberFormat;
+import java.text.ParseException;
 
 import model.Transaction;
 import java.util.List;
@@ -19,6 +24,9 @@ public class ExpenseTrackerView extends JFrame {
   private JFormattedTextField amountField;
   private JTextField categoryField;
   private DefaultTableModel model;
+  private JButton applyFilterBtn;
+  private JFormattedTextField filterAmountField;
+  private JTextField filterCategoryField;
   
 
   public ExpenseTrackerView() {
@@ -41,6 +49,12 @@ public class ExpenseTrackerView extends JFrame {
     JLabel categoryLabel = new JLabel("Category:");
     categoryField = new JTextField(10);
 
+    filterCategoryField = new JTextField(10);
+    filterCategoryField.setMaximumSize(new Dimension(150, 20));
+    filterAmountField = new JFormattedTextField(format);
+    filterAmountField.setMaximumSize(new Dimension(150, 20));
+    applyFilterBtn = new JButton("Apply Filter");
+
     // Create table
     transactionsTable = new JTable(model);
   
@@ -54,14 +68,24 @@ public class ExpenseTrackerView extends JFrame {
   
     JPanel buttonPanel = new JPanel();
     buttonPanel.add(addTransactionBtn);
+
+    // Filter components
+    JPanel filterPanel = new JPanel();
+    filterPanel.setLayout(new BoxLayout(filterPanel, BoxLayout.Y_AXIS));
+    filterPanel.add(new JLabel("Category Filter:"));
+    filterPanel.add(filterCategoryField);
+    filterPanel.add(new JLabel("Amount Filter:"));
+    filterPanel.add(filterAmountField);
+    filterPanel.add(applyFilterBtn);
   
     // Add panels to frame
     add(inputPanel, BorderLayout.NORTH);
+    add(filterPanel, BorderLayout.EAST);
     add(new JScrollPane(transactionsTable), BorderLayout.CENTER); 
     add(buttonPanel, BorderLayout.SOUTH);
   
     // Set frame properties
-    setSize(400, 300);
+    setSize(700, 700);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setVisible(true);
   
@@ -96,6 +120,11 @@ public class ExpenseTrackerView extends JFrame {
   public JButton getAddTransactionBtn() {
     return addTransactionBtn;
   }
+
+  public JButton getFilterBtn() {
+    return applyFilterBtn;
+  }
+
   public DefaultTableModel getTableModel() {
     return model;
   }
@@ -104,13 +133,24 @@ public class ExpenseTrackerView extends JFrame {
     return transactionsTable;
   }
 
-  public double getAmountField() {
-    if(amountField.getText().isEmpty()) {
+  public double getFilterAmountField() {
+    String text = filterAmountField.getText().replace(",", "").trim();
+    if (text.isEmpty()) {
       return 0;
-    }else {
-    double amount = Double.parseDouble(amountField.getText());
-    return amount;
     }
+    return Double.parseDouble(text);
+  }
+
+  public String getFilterCategoryField() {
+    return filterCategoryField.getText();
+  }
+
+  public double getAmountField() {
+    String text = amountField.getText().replace(",", "").trim();
+    if (text.isEmpty()) {
+      return 0;
+    }
+    return Double.parseDouble(text);
   }
 
   public void setAmountField(JFormattedTextField amountField) {

@@ -7,6 +7,10 @@ import view.ExpenseTrackerView;
 import model.Transaction;
 import controller.InputValidation;
 
+import controller.TransactionFilter;
+import controller.AmountFilter;
+import controller.CategoryFilter;
+
 public class ExpenseTrackerApp {
 
   public static void main(String[] args) {
@@ -34,6 +38,32 @@ public class ExpenseTrackerApp {
       }
     });
 
-  }
+    // filter button event handler
+    view.getFilterBtn().addActionListener(e -> {
+      double filterAmount = view.getFilterAmountField();
+      String filterCategory = view.getFilterCategoryField();
 
+      if (!filterCategory.isEmpty()) {
+        if (!InputValidation.isValidCategory(filterCategory)) {
+          JOptionPane.showMessageDialog(view, "Invalid category entered");
+          view.toFront();
+        }
+        TransactionFilter categoryFilter = new CategoryFilter(filterCategory);
+        controller.applyFilter(categoryFilter);
+      }
+      
+      else if (filterAmount > 0) {
+        if (!InputValidation.isValidAmount(filterAmount)) {
+          JOptionPane.showMessageDialog(view, "Invalid amount entered");
+          view.toFront();
+        }
+        TransactionFilter amountFilter = new AmountFilter(filterAmount);
+        controller.applyFilter(amountFilter);
+      }
+
+      else {
+        JOptionPane.showMessageDialog(view, "Please enter a valid filter");
+      }
+    });
+  }
 }

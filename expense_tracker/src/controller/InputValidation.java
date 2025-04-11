@@ -7,7 +7,7 @@ public class InputValidation {
   public static boolean isValidAmount(double amount) {
     
     // Check range
-    if(amount >1000) {
+    if(amount > 1000) {
       return false;
     }
     if (amount < 0){

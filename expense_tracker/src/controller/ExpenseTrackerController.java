@@ -46,4 +46,8 @@ public class ExpenseTrackerController {
   }
   
   // Other controller methods
+  public void applyFilter(TransactionFilter filter) {
+    List<Transaction> transactions = model.getTransactions();
+    view.refreshTable(filter.filter(transactions));
+  }
 }

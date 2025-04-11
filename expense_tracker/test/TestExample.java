@@ -14,17 +14,17 @@ import view.ExpenseTrackerView;
 
 
 public class TestExample {
-  
-  private ExpenseTrackerModel model;
-  private ExpenseTrackerView view;
-  private ExpenseTrackerController controller;
 
-  @Before
-  public void setup() {
-    model = new ExpenseTrackerModel();
-    view = new ExpenseTrackerView();
-    controller = new ExpenseTrackerController(model, view);
-  }
+    private ExpenseTrackerModel model;
+    private ExpenseTrackerView view;
+    private ExpenseTrackerController controller;
+
+    @Before
+    public void setup() {
+        model = new ExpenseTrackerModel();
+        view = new ExpenseTrackerView();
+        controller = new ExpenseTrackerController(model, view);
+    }
 
     public double getTotalCost() {
         double totalCost = 0.0;
