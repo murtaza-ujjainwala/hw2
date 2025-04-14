@@ -26,10 +26,10 @@ public class TestExample {
     private ExpenseTrackerView view;
     private ExpenseTrackerController controller;
 
+    @Before
     /**
      * Initializes the MVC components of the application.
      */
-    @Before
     public void setup() {
         model = new ExpenseTrackerModel();
         view = new ExpenseTrackerView();
@@ -50,10 +50,10 @@ public class TestExample {
         return totalCost;
     }
 
+    @Test
     /**
      * Tests if adding a transaction with a valid number and category works.
      */
-    @Test
     public void testAddTransaction() {
         // Pre-condition: List of transactions is empty
         assertEquals(0, model.getTransactions().size());
@@ -68,10 +68,10 @@ public class TestExample {
         assertEquals(50.00, getTotalCost(), 0.01);
     }
 
+    @Test
     /**
      * Tests if removing a transaction with a valid number and category works.
      */
-    @Test
     public void testRemoveTransaction() {
         // Pre-condition: List of transactions is empty
         assertEquals(0, model.getTransactions().size());
@@ -95,10 +95,10 @@ public class TestExample {
         assertEquals(0.00, totalCost, 0.01);
     }
 
+    @Test
     /**
      * Tests if adding a transaction with a valid number and category works.
      */
-    @Test
     public void testAddTransaction2() {
         assertEquals(0, model.getTransactions().size());
 
@@ -111,10 +111,10 @@ public class TestExample {
         assertEquals(50.00, getTotalCost(), 0.01);
     }
 
+    @Test
     /**
      * Tests if adding a transaction with a valid number and category works.
      */
-    @Test
     public void testInvalidInputHandling() {
         assertTrue("Category can't be null", !InputValidation.isValidCategory(""));
 
@@ -131,10 +131,10 @@ public class TestExample {
         assertEquals(0, getTotalCost(), 0.0000001);
     }
 
+    @Test
     /**
      * Tests the filtering of transactions by amount.
      */
-    @Test
     public void testFilterByAmount() {
         controller.addTransaction(50.00, "bills");
         controller.addTransaction(20.00, "food");
@@ -149,10 +149,10 @@ public class TestExample {
         assertTrue(filteredList.stream().allMatch(e -> e.getAmount() == 35.56));
     }
 
+    @Test
     /**
      * Tests the filtering of transactions by category.
      */
-    @Test
     public void testFilterByCategory() {
         controller.addTransaction(50.00, "bills");
         controller.addTransaction(20.00, "bills");

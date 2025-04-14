@@ -21,7 +21,7 @@ public class ExpenseTrackerModel {
   /**
    * Adds a new transaction to the list of transactions.
    * 
-   * @param t
+   * @param t the Transaction object to be added to the list of transactions
    */
   public void addTransaction(Transaction t) {
     transactions.add(t);
@@ -30,7 +30,7 @@ public class ExpenseTrackerModel {
   /**
    * Removes a specified transaction from the list of transactions.
    * 
-   * @param t
+   * @param t the Transaction object to be removed from the list of transactions
    */
   public void removeTransaction(Transaction t) {
     transactions.remove(t);

@@ -9,7 +9,7 @@ public class InputValidation {
 
   /**
    * Validates the amount field. This number should be between 0 and 1000.
-   * @param amount_str The user's input of the amount.
+   * @param amount The user's input of the amount.
    * @return The amount if it is valid.
    */
   public static boolean isValidAmount(double amount) {
@@ -29,7 +29,7 @@ public class InputValidation {
 
   /**
    * Validates the category field. This value should be "food", "travel", "bills", "entertainment", or "other".
-   * @param category_str The user's input of the category.
+   * @param category The user's input of the category.
    * @return The category if it is valid.
    */
   public static boolean isValidCategory(String category) {
