@@ -17,13 +17,18 @@ import model.ExpenseTrackerModel;
 import model.Transaction;
 import view.ExpenseTrackerView;
 
-
+/**
+ * Testing environment for the Expense Tracker application.
+ */
 public class TestExample {
 
     private ExpenseTrackerModel model;
     private ExpenseTrackerView view;
     private ExpenseTrackerController controller;
 
+    /**
+     * Initializes the MVC components of the application.
+     */
     @Before
     public void setup() {
         model = new ExpenseTrackerModel();
@@ -31,6 +36,11 @@ public class TestExample {
         controller = new ExpenseTrackerController(model, view);
     }
 
+    /**
+     * Calculates the total cost of all transactions currently stored in the model.
+     *
+     * @return the total sum of all transaction transactions currently stored in the transaction list.
+     */
     public double getTotalCost() {
         double totalCost = 0.0;
         List<Transaction> allTransactions = model.getTransactions(); // Using the model's getTransactions method
@@ -39,9 +49,10 @@ public class TestExample {
         }
         return totalCost;
     }
-    
 
-
+    /**
+     * Tests if adding a transaction with a valid number and category works.
+     */
     @Test
     public void testAddTransaction() {
         // Pre-condition: List of transactions is empty
@@ -57,7 +68,9 @@ public class TestExample {
         assertEquals(50.00, getTotalCost(), 0.01);
     }
 
-
+    /**
+     * Tests if removing a transaction with a valid number and category works.
+     */
     @Test
     public void testRemoveTransaction() {
         // Pre-condition: List of transactions is empty
@@ -82,6 +95,9 @@ public class TestExample {
         assertEquals(0.00, totalCost, 0.01);
     }
 
+    /**
+     * Tests if adding a transaction with a valid number and category works.
+     */
     @Test
     public void testAddTransaction2() {
         assertEquals(0, model.getTransactions().size());
@@ -95,6 +111,9 @@ public class TestExample {
         assertEquals(50.00, getTotalCost(), 0.01);
     }
 
+    /**
+     * Tests if adding a transaction with a valid number and category works.
+     */
     @Test
     public void testInvalidInputHandling() {
         assertTrue("Category can't be null", !InputValidation.isValidCategory(""));
@@ -112,6 +131,9 @@ public class TestExample {
         assertEquals(0, getTotalCost(), 0.0000001);
     }
 
+    /**
+     * Tests the filtering of transactions by amount.
+     */
     @Test
     public void testFilterByAmount() {
         controller.addTransaction(50.00, "bills");
@@ -127,6 +149,9 @@ public class TestExample {
         assertTrue(filteredList.stream().allMatch(e -> e.getAmount() == 35.56));
     }
 
+    /**
+     * Tests the filtering of transactions by category.
+     */
     @Test
     public void testFilterByCategory() {
         controller.addTransaction(50.00, "bills");

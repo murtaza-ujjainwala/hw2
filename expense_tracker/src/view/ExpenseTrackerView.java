@@ -17,6 +17,10 @@ import java.text.ParseException;
 import model.Transaction;
 import java.util.List;
 
+/**
+ * The ExpenseTrackerView class creates the User Interface for the Expense Tracker application.
+ * It provides the methods for the input fields (used for entering transactions), the table displaying transaction history, and the button for adding transactions.
+ */
 public class ExpenseTrackerView extends JFrame {
 
   private JTable transactionsTable;
@@ -28,7 +32,9 @@ public class ExpenseTrackerView extends JFrame {
   private JFormattedTextField filterAmountField;
   private JTextField filterCategoryField;
   
-
+  /**
+   * Constructs the main GUI for the Expense Tracker application.
+   */
   public ExpenseTrackerView() {
     setTitle("Expense Tracker"); // Set title
     setSize(600, 400); // Make GUI larger
@@ -91,6 +97,11 @@ public class ExpenseTrackerView extends JFrame {
   
   }
 
+  /**
+   * Refreshes the transaction table with the latest list of transactions.
+   * 
+   * @param transactions the list of transactions to display in the table
+   */
   public void refreshTable(List<Transaction> transactions) {
       // Clear existing rows
       model.setRowCount(0);
@@ -112,27 +123,51 @@ public class ExpenseTrackerView extends JFrame {
       // Fire table update
       transactionsTable.updateUI();
   
-    }  
-  
+    }
 
-  
-  
+  /**
+   * Returns the "Add Transaction" button component.
+   * 
+   * @return the "Add Transaction" JButton
+   */
   public JButton getAddTransactionBtn() {
     return addTransactionBtn;
   }
 
+  /**
+   * Returns the "Apply Filter" button component.
+   * 
+   * @return the "Apply Filter" JButton
+   */
   public JButton getFilterBtn() {
     return applyFilterBtn;
   }
 
+  /**
+   * Returns the table model used for displaying transaction data in the table.
+   * 
+   * @return the DefaultTableModel that represents the transaction table
+   */
   public DefaultTableModel getTableModel() {
     return model;
   }
+
   // Other view methods
-    public JTable getTransactionsTable() {
+
+  /**
+   * Returns the JTable component that displays the transactions list.
+   * 
+   * @return the JTable displaying the transactions
+   */
+  public JTable getTransactionsTable() {
     return transactionsTable;
   }
 
+  /**
+   * Retrieves the amount entered in the amount filter field.
+   * 
+   * @return the amount that the transactions list will be filtered on, parsed as a double (or 0 if the field is empty)
+   */
   public double getFilterAmountField() {
     String text = filterAmountField.getText().replace(",", "").trim();
     if (text.isEmpty()) {
@@ -141,10 +176,20 @@ public class ExpenseTrackerView extends JFrame {
     return Double.parseDouble(text);
   }
 
+  /**
+   * Retrieves the category entered in the category filter field.
+   * 
+   * @return the category that the transactions list will be filtered on, parsed as a String
+   */
   public String getFilterCategoryField() {
     return filterCategoryField.getText();
   }
 
+  /**
+   * Retrieves the amount entered in the amount field.
+   * 
+   * @return the amount of the new transaction, parsed as a double (or 0 if the field is empty)
+   */
   public double getAmountField() {
     String text = amountField.getText().replace(",", "").trim();
     if (text.isEmpty()) {
@@ -153,15 +198,29 @@ public class ExpenseTrackerView extends JFrame {
     return Double.parseDouble(text);
   }
 
+  /**
+   * Sets the amount input field in the view.
+   * 
+   * @param amountField the JFormattedTextField which will be set as the new amount in the amount input field
+   */
   public void setAmountField(JFormattedTextField amountField) {
     this.amountField = amountField;
   }
 
-  
+  /**
+   * Retrieves the current text entered in the category input field.
+   * 
+   * @return the category entered by the user, parsed as a String
+   */
   public String getCategoryField() {
     return categoryField.getText();
   }
 
+  /**
+   * Sets the category input field in the view.
+   * 
+   * @param categoryField the JTextField which will be set as the new category in the category input field
+   */
   public void setCategoryField(JTextField categoryField) {
     this.categoryField = categoryField;
   }

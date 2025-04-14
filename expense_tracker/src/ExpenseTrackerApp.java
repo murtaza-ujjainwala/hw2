@@ -11,8 +11,15 @@ import controller.TransactionFilter;
 import controller.AmountFilter;
 import controller.CategoryFilter;
 
+/**
+ * The ExpenseTrackerApp class allows users to add daily transactions.
+ */
 public class ExpenseTrackerApp {
 
+  /**
+   * Initializes the view for the application, and sets up event handling for "Add Transaction" button clicks.
+   * @param args Command-line arguments.
+   */
   public static void main(String[] args) {
     
     // Create MVC components
