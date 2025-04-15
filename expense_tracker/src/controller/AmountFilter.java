@@ -2,6 +2,7 @@ package controller;
 
 import model.Transaction;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * The AmountFilter class implements the TransactionFilter interface and overrides the filter method defined there.
@@ -27,6 +28,6 @@ public class AmountFilter implements TransactionFilter {
      */
     @Override
     public List<Transaction> filter(List<Transaction> transactions) {
-        return transactions.stream().filter(e -> e.getAmount() == amount).toList();
+        return transactions.stream().filter(e -> e.getAmount() == amount).collect(Collectors.toList());
     }
 }
