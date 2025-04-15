@@ -1,0 +1,83 @@
+commit 3bb82ff7f408afef0353dca70ebd2f4d2c0c01cf
+Author: https://github.com/murtmurt <tazujjainwala@gmail.com>
+Date:   Mon Apr 14 21:01:26 2025 -0400
+
+    added test runner screenshot and undo functionality PDF
+
+commit 28ea1cf2e081523b05d64879d0e83aad7e4be908
+Author: https://github.com/murtmurt <tazujjainwala@gmail.com>
+Date:   Mon Apr 14 18:54:23 2025 -0400
+
+    generated the jdoc html files
+
+commit d885468d49ee2c03d08abd65a1167e7bd84e6ad7
+Author: https://github.com/murtmurt <tazujjainwala@gmail.com>
+Date:   Mon Apr 14 18:37:45 2025 -0400
+
+    updated javadoc comments and README file
+
+commit a72ec1e7c06ab73d9e01e675a0870d8dab5aded7
+Author: https://github.com/murtmurt <tazujjainwala@gmail.com>
+Date:   Sat Apr 12 18:20:28 2025 -0400
+
+    updated README file with a description of filtering transactions.
+
+commit dbdcb1b403f67eebbc3361bc43e45724abc9ec9b
+Author: https://github.com/murtmurt <tazujjainwala@gmail.com>
+Date:   Sat Apr 12 17:28:53 2025 -0400
+
+    added more test cases
+
+commit eb5184ab524ae02dfc97bcfdff5e85fba8e64210
+Author: https://github.com/murtmurt <tazujjainwala@gmail.com>
+Date:   Thu Apr 10 20:54:57 2025 -0400
+
+    added category and amount filter panel, ensuring input validation on filter text fields works
+
+commit 72f7af83cff0a6ba5ae0392b6985a697d73dd97b
+Author: https://github.com/murtmurt <tazujjainwala@gmail.com>
+Date:   Wed Apr 9 00:51:45 2025 -0400
+
+    Established data encapsulation and immutability of the Transaction data
+
+commit 70a53e456e4c8b86d42f6710c20b69c505a84761
+Author: https://github.com/murtmurt <tazujjainwala@gmail.com>
+Date:   Wed Apr 9 00:10:22 2025 -0400
+
+    Added initial jdoc files, had to delete /jdoc/ from gitignore in order to commit this.
+
+commit e3c0ff0febe7cba7b4e7a35280536e3d507b8fcb
+Author: https://github.com/murtmurt <tazujjainwala@gmail.com>
+Date:   Tue Apr 8 23:54:54 2025 -0400
+
+    Initial documentation of new functionality in README.
+
+commit b21da9fb7fd47c25881d7fc014a932365cb1552b
+Author: Mahbuba Tasmin <tasmin153@gmail.com>
+Date:   Sat Sep 2 02:42:57 2023 -0400
+
+    Build file update
+
+commit ccabaffc7ff1b7098979a63fcbadf48bc04915c3
+Author: Mahbuba Tasmin <tasmin153@gmail.com>
+Date:   Tue Aug 29 14:49:22 2023 -0400
+
+    File Update
+
+commit 2574c71001a74c29f01f4a84fa99f450158f2f10
+Author: Mahbuba Tasmin <tasmin153@gmail.com>
+Date:   Wed Aug 9 14:11:14 2023 -0400
+
+    Total Cost and Serial update
+
+commit d29d2c8acb4145ce700e0456ccc334da0cad3dc2
+Author: Mahbuba Tasmin <tasmin153@gmail.com>
+Date:   Wed Aug 9 12:54:46 2023 -0400
+
+    HW2 template files
+
+commit 6a51d8019c39a33d581ce078ae8887a022ee806d
+Author: Mahbuba Tasmin <tasmin153@gmail.com>
+Date:   Tue Aug 8 21:48:41 2023 -0400
+
+    Initial commit
